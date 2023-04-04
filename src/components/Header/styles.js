@@ -37,3 +37,14 @@ export const Profile = styled.div`
   color: solid ${({theme}) => theme.COLORS.WHITE};
  }
 `;
+
+
+export const Logout = styled.button`
+ border: none;
+ background: none;
+
+ > svg{
+   font-size: 3.6rem;
+   color: ${({ theme }) => theme.COLORS.GRAY_100};
+  }
+`;
