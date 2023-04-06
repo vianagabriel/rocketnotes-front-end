@@ -8,6 +8,11 @@ export const Container = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 0 8rem;
+
+
+ @media(min-width: 375px) and (max-width: 800px){
+   padding: 2rem;
+ }
 `;
 
 export const Profile = styled.div`
@@ -36,6 +41,12 @@ export const Profile = styled.div`
   font-size: 1.8rem;
   color: solid ${({theme}) => theme.COLORS.WHITE};
  }
+
+ @media(min-width: 375px)and (max-width: 800px){
+    b{
+      font-size: 1.6rem;
+    }
+  }
 `;
 
 
@@ -47,4 +58,14 @@ export const Logout = styled.button`
    font-size: 3.6rem;
    color: ${({ theme }) => theme.COLORS.GRAY_100};
   }
+
+
+  @media(min-width: 375px)and (max-width: 800px){
+    > svg{
+   font-size: 2.5rem;
+  }
+  }
+
+
+  
 `;

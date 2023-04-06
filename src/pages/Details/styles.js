@@ -18,6 +18,11 @@ export const Container = styled.div`
     padding: 6.4rem 0;
   }
 
+  @media(min-width: 375px) and (max-width: 600px){
+    main{
+      margin: 2rem;
+    }
+  }
 `;
 
 
@@ -55,3 +60,5 @@ export const Content = styled.div`
     text-align: justify;
   }
 `;
+
+
