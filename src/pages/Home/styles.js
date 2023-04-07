@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 
 export const Conatiner = styled.div`
@@ -95,8 +96,9 @@ export const Content = styled.div`
  }
 `;
 
-export const NewNote = styled.button`
+export const NewNote = styled(Link)`
   background: ${({ theme }) => theme.COLORS.ORANGE};
+  color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
   border: none;
   display: flex;
   justify-content: center;
