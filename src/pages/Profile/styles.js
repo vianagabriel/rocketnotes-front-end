@@ -20,7 +20,7 @@ export const Container = styled.div`
         color: ${({ theme }) => theme.COLORS.GRAY_100};
     }
 
-  @media(min-width: 375px) and (max-width: 500px){
+  @media(min-width: 360px) and (max-width: 500px){
     a{ 
         margin-left: -9.5rem ;
     }

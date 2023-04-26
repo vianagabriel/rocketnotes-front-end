@@ -1,13 +1,46 @@
+import { useState } from 'react';
 import { Container, Form, Background } from './styles';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 
+import {api} from '../../services/api';
+
 import { FiUser, FiMail, FiLock } from 'react-icons/fi';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 export function SignUp() {
+
+    const [ name, setName ] = useState('');
+    const [ email, setEmail ] = useState('');
+    const [ password, setPassword ] = useState('');
+    const [ loading, setLoading ] = useState(false);
+
+    const navigate = useNavigate();
+
+
+    function handleSignUp(){
+      if(!name || !email || !password){
+        return alert('Preencha todos os campos!');
+      }
+
+      setLoading(true)
+
+      api.post('/users', {name, email, password})
+      .then(() => {
+        alert('Usuário cadastrado com sucesso')
+        navigate('/')
+      }).catch((error) => {
+        if(error.response){
+            alert(error.response.data.message)
+        }else{
+            alert('Não foi possível cadastrar')
+        }
+        setLoading(false)
+      })
+    }
+
     return (
         <Container>
             <Background/>
@@ -22,12 +55,14 @@ export function SignUp() {
                     placeholder='Nome'
                     type='text'
                     icon={FiUser}
+                    onChange={e => setName(e.target.value)}
                 />
 
                 <Input
                     placeholder='E-mail'
                     type='email'
                     icon={FiMail}
+                    onChange={e => setEmail(e.target.value)}
                 />
 
 
@@ -35,9 +70,10 @@ export function SignUp() {
                     placeholder='Senha'
                     type='password'
                     icon={FiLock}
+                    onChange={e => setPassword(e.target.value)}
                 />
 
-                <Button title='Cadastrar'/>
+                <Button title='Cadastrar' loading={loading} onClick={handleSignUp}/>
 
                 <Link to='/'>Volte para o login</Link>
 
