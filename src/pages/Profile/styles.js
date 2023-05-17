@@ -11,7 +11,7 @@ export const Container = styled.div`
     align-items: center;
     padding: 0 12.4rem;
     
-    > a {
+    > a { 
         margin-left: 0;
     }
 

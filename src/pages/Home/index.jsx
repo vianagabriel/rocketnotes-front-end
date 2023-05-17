@@ -49,46 +49,7 @@ export function Home() {
             {id: '2', name: 'jwt' },
           ]
         }}/>
-        <Note data={{
-          title: 'React',
-          tags:[
-            {id: '1', name: 'react' },
-            {id: '2', name: 'node' },
-          ]
-        }}/>
-        <Note data={{
-          title: 'React',
-          tags:[
-            {id: '1', name: 'react' },
-            {id: '2', name: 'node' },
-          ]
-        }}/><Note data={{
-          title: 'React',
-          tags:[
-            {id: '1', name: 'react' },
-            {id: '2', name: 'node' },
-          ]
-        }}/><Note data={{
-          title: 'React',
-          tags:[
-            {id: '1', name: 'react' },
-            {id: '2', name: 'node' },
-          ]
-        }}/><Note data={{
-          title: 'React',
-          tags:[
-            {id: '1', name: 'react' },
-            {id: '2', name: 'node' },
-          ]
-        }}/><Note data={{
-          title: 'React',
-          tags:[
-            {id: '1', name: 'react' },
-            {id: '2', name: 'node' },
-          ]
-        }}/>
-        
-
+       
       </Content>
 
       <NewNote to='/new'>
