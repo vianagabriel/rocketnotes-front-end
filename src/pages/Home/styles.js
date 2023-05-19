@@ -51,6 +51,8 @@ export const Brand = styled.div`
 export const Menu = styled.ul`
  display: flex;
  justify-content: space-evenly;
+ flex-wrap: wrap;
+ gap: 1rem;
  align-items: center;
  margin-top: 6rem;
   

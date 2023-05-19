@@ -9,6 +9,7 @@ import { Note } from '../../components/Note';
 
 import { FiPlus, FiSearch } from 'react-icons/fi';
 import { api } from '../../services/api';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -19,8 +20,13 @@ export function Home() {
   const [search, setSearch] = useState('')
   const [notes, setNotes] = useState([])
 
+  const navigate = useNavigate()
 
   function handleTagSelected(tagName) {
+
+    if(tagName === 'all'){
+      return setTagsSelected([])
+    }
 
     const alreadySelected = tagsSelected.includes(tagName)
 
@@ -34,6 +40,9 @@ export function Home() {
 
   }
 
+  function handleDetails(id){
+    navigate(`/details/${id}`)
+  }
 
   useEffect(() => {
     async function fetchTags() {
@@ -47,12 +56,12 @@ export function Home() {
 
   useEffect(() => {
     async function fetchNotes() {
-      const response = await api.get(`/notes?title=${search}&tags=${tagsSelected}`)
-      setNotes(response.data)
+      const response = await api.get(`/notes?title=${search}&tags=${tagsSelected}`);
+      setNotes(response.data);
     }
 
-    fetchNotes()
-  }, [tagsSelected, search])
+    fetchNotes();
+  }, [tagsSelected, search]);
 
   return (
     <Conatiner>
@@ -89,7 +98,7 @@ export function Home() {
       <Input
           type='text'
           placeholder='Pesquisar pelo titulo'
-          onChange={e => setSearch(e.target.value)}
+          onChange={(e) => setSearch(e.target.value)}
           icon={FiSearch} 
       />  
       </Search>
@@ -102,6 +111,7 @@ export function Home() {
             <Note
              key={String(note.id)}
              data={note}
+             onClick={() => handleDetails(note.id) }
             />
           ))
          
